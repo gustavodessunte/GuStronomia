@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styleReceitas.css" />
+  </head>
+  <style></style>
+
+  <body>
+    <div style="margin-top: 6%" id="telaReceitas">
+      <div id="divDoces">
+        <div style="display: flex; justify-content: center">
+          <div style="display: flex; width: 92%">
+            <div>
+              <p style="margin-bottom: 6.5px; color: #aa4378; font-weight: 700">
+                DOCES
+              </p>
+            </div>
+            <div style="width: 100%; align-items: flex-end; display: flex">
+              <hr
+                style="margin-left: 1px; width: 100%; border: 1px dashed gray"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="display: flex; justify-content: space-evenly"
+          id="cardDoces"
+        ></div>
+      </div>
+      <div id="divSalgados">
+        <div style="display: flex; justify-content: center">
+          <div style="display: flex; width: 92%">
+            <div>
+              <p style="margin-bottom: 6.5px; color: #aa4378; font-weight: 700">
+                SALGADOS
+              </p>
+            </div>
+            <div style="width: 100%; align-items: flex-end; display: flex">
+              <hr
+                style="margin-left: 1px; width: 100%; border: 1px dashed gray"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="display: flex; justify-content: space-evenly"
+          id="cardSalgados"
+        ></div>
+      </div>
+      <div id="divDrinks">
+        <div style="display: flex; justify-content: center">
+          <div style="display: flex; width: 92%">
+            <div>
+              <p style="margin-bottom: 6.5px; color: #aa4378; font-weight: 700">
+                DRINKS
+              </p>
+            </div>
+            <div style="width: 100%; align-items: flex-end; display: flex">
+              <hr
+                style="margin-left: 1px; width: 100%; border: 1px dashed gray"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="display: flex; justify-content: space-evenly"
+          id="cardDrinks"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var arrayDoces = [
+    {
+      id: 1,
+      imgDoce: "./assets/tortaOpera.jpg",
+      nomeDoce: "TORTA ÒPERA",
+      descDoce:
+        "O ópera é um delicado bolo gelado montado em camadas, e que já nasceu como um clássico da confeitaria francesa",
+      nomeBtn: "opera",
+    },
+    {
+      id: 2,
+      imgDoce: "./assets/redVelvet.png",
+      nomeDoce: "BOLO RED VELVET",
+      descDoce:
+        "O bolo veludo vermelho, também conhecido pelo nome em inglês red velvet, é um bolo popular, com uma coloração vermelha ou marrom-avermelhada.",
+      nomeBtn: "redVelvet",
+    },
+    {
+      id: 3,
+      imgDoce: "./assets/souffleGlace.jpg",
+      nomeDoce: "SOUFFLÉ GLACÉ",
+      descDoce:
+        "O Soufflé Glacé é uma sobremesa cheia de charme! Tem cara de soufflé e textura de sorvete, refresca",
+      nomeBtn: "sufle",
+    },
+  ];
+  var arraySalgados = [
+    {
+      id: 4,
+      imgSalgado: "./assets/estrogonofe.png",
+      nomeSalgado: "ESTROGONOFE DE CAMARÃO",
+      descSalgado:
+        "Estrogonofe é um prato originário da culinária russa composto de camarões servidos num molho de creme de leite.",
+      nomeBtn: "estrogonofe",
+    },
+    {
+      id: 5,
+      imgSalgado: "./assets/steak.jfif",
+      nomeSalgado: "STEAK AU POIVRE",
+      descSalgado:
+        "Steak au poivre ou bife de pimenta é um prato francês que consiste em um bife, tradicionalmente um filé mignon, revestido com pimenta grosseiramente rachada",
+      nomeBtn: "steak",
+    },
+    {
+      id: 6,
+      imgSalgado: "./assets/fileMignon.jpg",
+      nomeSalgado: "FILE MIGNON AO VINHO TINTO",
+      descSalgado:
+        "O Soufflé Glacé é uma sobremesa cheia de charme! Tem cara de soufflé e textura de sorvete, refresca",
+      nomeBtn: "fliMignon",
+    },
+  ];
+  var arrayDrinks = [
+    {
+      id: 7,
+      imgDrink: "./assets/lagoaAzul.jpeg",
+      nomeDrink: "LAGOA AZUL",
+      desDrink:
+        "O Lagoa Azul é um coquetel francês com blue Curaçao misturado com vodka e limonada.",
+      nomeBtn: "lagoa",
+    },
+    {
+      id: 8,
+      imgDrink: "./assets/peachMargarita.jpg",
+      nomeDrink: "PEACH MARGARITA",
+      desDrink:
+        "A margarita é um drink mexicano que leva tequila, sal, açúcar e frutas cítricas, como limão e laranja",
+      nomeBtn: "margarita",
+    },
+    {
+      id: 9,
+      imgDrink: "./assets/cosmopolitan.png",
+      nomeDrink: "COSMOPOLITAN",
+      desDrink:
+        "Um cosmopolitan, ou simplesmente cosmo, é uma bebida alcoólica, ou um coquetel feito com vodca, triple sec, suco de oxicoco e suco de limão espremido",
+      nomeBtn: "cosmopolitan",
+    },
+  ];
+
+  const containerDoces = document.getElementById("cardDoces");
+  const containerSalgados = document.getElementById("cardSalgados");
+  const containerDrinks = document.getElementById("cardDrinks");
+
+  arrayDoces.forEach((x) => {
+    const contentDoces = `
+        <div class="card">
+            <div>
+                
+                <div id="imgDoce">
+                    <img class="imgsDoce" src="${x.imgDoce}" />
+                </div>
+                <div class="flexCenter">
+                    <p id="titleDoce" style="margin-bottom: 0;">${x.nomeDoce}</p>
+                </div>
+                <div>
+                    <hr style="width: 80%; border: 0.5% solid black;">
+                </div>
+                <div>
+                    <p id="descDoce${x.nomeBtn}" style="text-align: center;">
+                        ${x.descDoce}
+                    </p>
+                </div>
+                <div style="display:flex; align-items:end;" id="btnVerMais${x.nomeBtn}" onclick="VerMaisDoces(${x.id})">
+                    <button class="btnCards">
+                        VER MAIS
+                    </button>
+                </div>
+        </div>
+
+        `;
+    var btn = `btnVerMais${x.nomeBtn}`;
+    var ajusteBtn = `descDoce${x.nomeBtn}`;
+
+    console.log(btn);
+    console.log(ajusteBtn);
+
+    containerDoces.innerHTML += contentDoces;
+
+    if (document.getElementById(ajusteBtn).clientHeight <= 76) {
+      document.getElementById(btn).style.marginTop = "33px";
+    }
+  });
+
+  arraySalgados.forEach((y) => {
+    const contentSalgados = `
+        <div class="card">
+            <div>
+                <div id="imgSalgado">
+                    <img class="imgsDoce" src="${y.imgSalgado}" />
+                </div>
+                <div class="flexCenter">
+                    <p id="titleSalgado" style="margin-bottom: 0;">${y.nomeSalgado}</p>
+                </div>
+                <div>
+                    <hr style="width: 80%; border: 0.5% solid black;">
+                </div>
+                <div>
+                    <p id="descSalgado${y.nomeBtn}" style="text-align: center;">
+                        ${y.descSalgado}
+                    </p>
+                </div>
+                <div style="display:flex; align-items:end;">
+                    <button class="btnCards" id="btnVerMais${y.nomeBtn}" onclick="VerMaisSalgados(${y.id})">
+                        VER MAIS
+                    </button>
+                </div>
+            </div>
+        </div>
+        `;
+    containerSalgados.innerHTML += contentSalgados;
+
+    var btn = `btnVerMais${y.nomeBtn}`;
+    var ajusteBtn = `descSalgado${y.nomeBtn}`;
+
+    if (document.getElementById(ajusteBtn).clientHeight <= 76) {
+      document.getElementById(btn).style.marginTop = "17px";
+    }
+  });
+
+  arrayDrinks.forEach((z) => {
+    const contentDrinks = `
+        <div class="card">
+            <div>
+                <div id="imgDrinks">
+                    <img class="imgsDoce" src="${z.imgDrink}" />
+                </div>
+                <div class="flexCenter">
+                    <p id="titleDrink" style="margin-bottom: 0;">${z.nomeDrink}</p>
+                </div>
+                <div>
+                    <hr style="width: 80%; border: 0.5% solid black;">
+                </div>
+                <div>
+                    <p id="descDrink${z.nomeBtn}" style="text-align: center;">
+                        ${z.desDrink}
+                    </p>
+                </div>
+                <div style="display:flex; align-items:end;">
+                    <button class="btnCards" id="btnVerMais${z.nomeBtn}" onclick="VerMaisDrinks(${z.id})">
+                        VER MAIS
+                    </button>
+                </div>
+            </div>
+        </div>
+        `;
+    containerDrinks.innerHTML += contentDrinks;
+
+    var btn = `btnVerMais${z.nomeBtn}`;
+    var ajusteBtn = `descDrink${z.nomeBtn}`;
+
+    if (document.getElementById(ajusteBtn).clientHeight <= 76) {
+      document.getElementById(btn).style.marginTop = "38px";
+    }
+  });
+
+  function VerMaisDoces(num) {
+    telaReceitas.style.display = "none";
+    if (num == 1) {
+    } else if (num == 2) {
+    } else if (num == 3) {
+    }
+  }
+  function VerMaisSalgados(num) {
+    telaReceitas.style.display = "none";
+    if (num == 4) {
+    } else if (num == 5) {
+    } else if (num == 6) {
+    }
+  }
+  function VerMaisDrinks(num) {
+    telaReceitas.style.display = "none";
+    if (num == 7) {
+    } else if (num == 8) {
+    } else if (num == 9) {
+    }
+  }
+</script>
