@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    * {
+      font-family: "Helvetica", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
+    .slides {
+      transition: 4s;
+      width: 100%;
+    }
+    .imgGastronomia:hover {
+      transition: all 0.5s;
+      box-shadow: -13px 14px 4px rgba(0, 0, 0, 0.6);
+    }
+    .imgOQSinto:hover {
+      transition: all 0.5s;
+      box-shadow: 13px 14px 4px rgba(0, 0, 0, 0.6);
+    }
+  </style>
   <body style="margin: 0; padding: 0; overflow-y: hidden" id="body">
     <div
       style="
@@ -22,51 +46,171 @@
         <source src="loading.mp4" type="video/mp4" />
       </video>
     </div>
-    <div style="font-size: 65px">
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />
+    <!-- Inicio Conteudo -->
+    <header style="background-color: #76c9c7" id="header">
+      <nav
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: sticky;
+          padding: 1% 2%;
+        "
+      >
+        <div style="width: 15%">
+          <img style="width: 100%" src="./assets/logo.png" />
+        </div>
+        <div>
+          <ul
+            style="
+              list-style: none;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              font-size: 32px;
+            "
+          >
+            <li>
+              <a href="../Receitas/receitas.html"> RECEITAS </a>
+            </li>
+            <li>
+              <hr style="width: 4vh; border: 1px solid black; rotate: 90deg" />
+            </li>
+            <li>
+              <a href="../Gastronomia/gastronomia.html"> GASTRONOMIA </a>
+            </li>
+            <li>
+              <hr style="width: 4vh; border: 1px solid black; rotate: 90deg" />
+            </li>
+            <li>
+              <a href="">
+                <img style="width: 3vw" src="./assets/Account circle.svg" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="slideShow" style="width: 100%">
+      <img class="slides" src="./assets/img1.png" />
+      <img class="slides" src="./assets/img2.png" />
+      <img class="slides" src="./assets/img3.png" />
+    </div>
+
+    <div style="margin-top: 10vh; width: 100%" id="infos">
+      <div style="justify-content: center; display: flex">
+        <div style="width: 30%">
+          <img
+            class="imgGastronomia"
+            style="width: 95%"
+            src="./assets/imgGastronomia.png"
+          />
+        </div>
+        <div style="width: 30%; display: flex; align-items: center">
+          <div>
+            <div style="display: flex; justify-content: center">
+              <p
+                style="
+                  font-size: 38pt;
+                  font-weight: bold;
+                  text-decoration: underline;
+                  color: #aa4378;
+                "
+              >
+                O QUE É GASTRONOMIA?
+              </p>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 4%">
+              <p style="width: 74%; font-size: 25pt">
+                Gastronomia é a arte de cozinhar e preparar os alimentos e
+                bebidas de modo a realçar suas qualidades.
+              </p>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 4%">
+              <p style="width: 74%; font-size: 25pt">
+                Para mais informações
+                <span
+                  ><a style="color: #aa4378; text-decoration: underline" href=""
+                    >clique aqui.</a
+                  ></span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="justify-content: center; display: flex; margin-top: 10vh">
+        <div style="width: 30%; display: flex; align-items: center">
+          <div>
+            <div style="display: flex; justify-content: center">
+              <p
+                style="
+                  font-size: 38pt;
+                  font-weight: bold;
+                  text-decoration: underline;
+                  color: #aa4378;
+                "
+              >
+                QUAIS SENTIMENTOS SÃO GERADOS?
+              </p>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 4%">
+              <p style="width: 100%; font-size: 25pt">
+                Para muitas pessoas, o momento de cozinhar, é o mesmo de
+                relaxar, se divertir e de experimentar coisas novas.
+              </p>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 4%">
+              <p style="width: 100%; font-size: 25pt">
+                Para mais informações
+                <span
+                  ><a style="color: #aa4378; text-decoration: underline" href=""
+                    >clique aqui.</a
+                  ></span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style="width: 30%">
+          <img
+            class="imgOQSinto"
+            style="width: 95%"
+            src="./assets/imgOqSinto.png"
+          />
+        </div>
+      </div>
     </div>
   </body>
 </html>
 <script>
+  infos.style.display = "none";
+  slideShow.style.display = "none";
+  header.style.display = "none";
+
   setTimeout(() => {
     divLoading.style.display = "none";
+    infos.style.display = "block";
+    slideShow.style.display = "block";
+    header.style.display = "block";
     body.style.overflowY = "visible";
   }, 6000);
+
+  var slideIndex = 0;
+  carousel();
+
+  function carousel() {
+    var x = document.getElementsByClassName("slides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {
+      slideIndex = 1;
+    }
+    x[slideIndex - 1].style.display = "block";
+    setTimeout(carousel, 3000);
+  }
 </script>
