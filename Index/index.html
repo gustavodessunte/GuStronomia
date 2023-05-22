@@ -1,202 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    * {
-      font-family: "Helvetica", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    a {
-      text-decoration: none;
-      color: black;
-      font-weight: 500;
-    }
-    .slides {
-      transition: 4s;
-      width: 100%;
-    }
-    .imgGastronomia:hover {
-      transition: all 0.5s;
-      box-shadow: -13px 14px 4px rgba(0, 0, 0, 0.6);
-    }
-    .imgOQSinto:hover {
-      transition: all 0.5s;
-      box-shadow: 13px 14px 4px rgba(0, 0, 0, 0.6);
-    }
-  </style>
-  <body style="margin: 0; padding: 0; overflow-y: hidden" id="body">
-    <div
-      style="
-        background-color: rgba(0, 0, 0, 0.79);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-      "
-      id="divLoading"
-    >
-      <video autoplay muted loop style="width: 30%">
-        <source src="loading.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <!-- Inicio Conteudo -->
-    <header style="background-color: #76c9c7" id="header">
-      <nav
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          position: sticky;
-          padding: 1% 2%;
-        "
-      >
-        <div style="width: 15%">
-          <img style="width: 100%" src="./assets/logo.png" />
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+
+</style>
+
+<body style="margin: 0; padding: 0; overflow-y: visible" id="body">
+  <!-- <div id="divLoading">
+        <video autoplay muted loop style="width: 30%">
+          <source src="loading.mp4" type="video/mp4" />
+        </video>
+      </div> -->
+  <!-- Inicio Conteudo -->
+  <header class="header" id="header">
+    <nav>
+      <div style="width: 15%">
+        <img src="./assets/logo.png" />
+      </div>
+      <div>
+        <ul>
+          <li>
+            <a href="../Receitas/receitas.html"> RECEITAS </a>
+          </li>
+          <li>
+            <hr />
+          </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">GASTRONOMIA</button>
+              <div class="dropdown-content">
+                <a href="#">O QUE É?</a>
+                <a href="#">Link 2</a>
+                <a href="#">COMO CHEGOU<br> EM MINHA VIDA?</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <hr />
+          </li>
+          <li>
+            <a href="">
+              <img src="./assets/Account circle.svg" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div id="slideShow">
+    <img class="slides" src="./assets/img1.png" />
+    <img class="slides" src="./assets/img2.png" />
+    <img class="slides" src="./assets/img3.png" />
+  </div>
+
+  <div id="infos">
+    <div class="flexCenter">
+      <div style="width: 30%; margin-right: 3%;">
+        <img class="imgGastronomia" src="./assets/Chef-pana.svg" />
+      </div>
+      <div class="divOqEGastronomia">
         <div>
-          <ul
-            style="
-              list-style: none;
-              display: flex;
-              align-items: center;
-              gap: 20px;
-              font-size: 32px;
-            "
-          >
-            <li>
-              <a href="../Receitas/receitas.html"> RECEITAS </a>
-            </li>
-            <li>
-              <hr style="width: 4vh; border: 1px solid black; rotate: 90deg" />
-            </li>
-            <li>
-              <a href="../Gastronomia/gastronomia.html"> GASTRONOMIA </a>
-            </li>
-            <li>
-              <hr style="width: 4vh; border: 1px solid black; rotate: 90deg" />
-            </li>
-            <li>
-              <a href="">
-                <img style="width: 3vw" src="./assets/Account circle.svg" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
-    <div id="slideShow" style="width: 100%">
-      <img class="slides" src="./assets/img1.png" />
-      <img class="slides" src="./assets/img2.png" />
-      <img class="slides" src="./assets/img3.png" />
-    </div>
-
-    <div style="margin-top: 10vh; width: 100%" id="infos">
-      <div style="justify-content: center; display: flex">
-        <div style="width: 30%">
-          <img
-            class="imgGastronomia"
-            style="width: 95%"
-            src="./assets/imgGastronomia.png"
-          />
-        </div>
-        <div style="width: 30%; display: flex; align-items: center">
-          <div>
-            <div style="display: flex; justify-content: center">
-              <p
-                style="
-                  font-size: 38pt;
-                  font-weight: bold;
-                  text-decoration: underline;
-                  color: #aa4378;
-                "
-              >
-                O QUE É GASTRONOMIA?
-              </p>
-            </div>
-            <div style="display: flex; justify-content: center; margin-top: 4%">
-              <p style="width: 74%; font-size: 25pt">
-                Gastronomia é a arte de cozinhar e preparar os alimentos e
-                bebidas de modo a realçar suas qualidades.
-              </p>
-            </div>
-            <div style="display: flex; justify-content: center; margin-top: 4%">
-              <p style="width: 74%; font-size: 25pt">
-                Para mais informações
-                <span
-                  ><a style="color: #aa4378; text-decoration: underline" href=""
-                    >clique aqui.</a
-                  ></span
-                >
-              </p>
-            </div>
+          <div class="flexCenter" style="width: 94%;">
+            <h3 class="pTituloInfos">
+              O QUE É GASTRONOMIA?
+            </h3>
+          </div>
+          <div class="flexCenter" style="margin-top: 4%">
+            <p class="pTxtInfos">
+              Gastronomia é a arte de cozinhar e preparar os alimentos e
+              bebidas de modo a realçar suas qualidades.
+            </p>
+          </div>
+          <div class="flexCenter" style="margin-top: 4%">
+            <p>
+              Para mais informações
+              <span><a class="aCliqueAqui" href="">clique aqui.</a></span>
+            </p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div style="justify-content: center; display: flex; margin-top: 10vh">
-        <div style="width: 30%; display: flex; align-items: center">
-          <div>
-            <div style="display: flex; justify-content: center">
-              <p
-                style="
-                  font-size: 38pt;
-                  font-weight: bold;
-                  text-decoration: underline;
-                  color: #aa4378;
-                "
-              >
-                QUAIS SENTIMENTOS SÃO GERADOS?
-              </p>
-            </div>
-            <div style="display: flex; justify-content: center; margin-top: 4%">
-              <p style="width: 100%; font-size: 25pt">
-                Para muitas pessoas, o momento de cozinhar, é o mesmo de
-                relaxar, se divertir e de experimentar coisas novas.
-              </p>
-            </div>
-            <div style="display: flex; justify-content: center; margin-top: 4%">
-              <p style="width: 100%; font-size: 25pt">
-                Para mais informações
-                <span
-                  ><a style="color: #aa4378; text-decoration: underline" href=""
-                    >clique aqui.</a
-                  ></span
-                >
-              </p>
-            </div>
+    <div class="flexCenter" style="margin-top: 10vh;">
+      <div class="flexCenter" style="align-items: center; width: 30%;">
+        <div>
+          <div class="flexCenter">
+            <h3 class="pTituloInfos">
+              QUAIS SENTIMENTOS SÃO GERADOS?
+            </h3>
+          </div>
+          <div class="flexCenter" style="margin-top: 4%">
+            <p class="pTxtInfos">
+              Para muitas pessoas, o momento de cozinhar, é o mesmo de
+              relaxar, se divertir e de experimentar coisas novas.
+            </p>
+          </div>
+          <div class="flexCenter" style="margin-top: 4%">
+            <p>
+              Para mais informações
+              <span><a class="aCliqueAqui" href="">clique aqui.</a></span>
+            </p>
           </div>
         </div>
-        <div style="width: 30%">
-          <img
-            class="imgOQSinto"
-            style="width: 95%"
-            src="./assets/imgOqSinto.png"
-          />
-        </div>
+      </div>
+      <div style="width: 30%; margin-left: 3%">
+        <img class="imgOQSinto" src="./assets/Customer feedback-pana.svg" />
       </div>
     </div>
-  </body>
+  </div>
+
+
+  <!-- Footer -->
+  
+  <footer style="margin-top: 25vh;background-color: #76C9C7;">
+    <div style="display: flex; align-items: center;padding: 3% 3%; justify-content: space-around;">
+      <div style="width: 100%;">
+        <img style="width: 35%;" src="./assets/logoOpacidade.png">
+      </div>
+      <div style="width: 100%;">
+        <p>TODOS DIREITOS RESERVADOS &reg;</p>
+      </div>
+      <div style="width: 32%;">
+        <div style="display: flex; align-items: center; width: 100%;">
+          <a style="width: 11%;" href=""><img style="width: 100%;"  src="./assets/facebook-f.svg"></a>
+          <a style="width: 18%; margin: 0 10%;" href=""><img style="width: 100%;" src="./assets/instagram.svg"></a>
+          <a style="width: 18%;" href=""><img style="width: 100%;"  src="./assets/linkedin.svg"></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+</body>
+
 </html>
 <script>
-  infos.style.display = "none";
-  slideShow.style.display = "none";
-  header.style.display = "none";
+  // infos.style.display = "none";
+  // slideShow.style.display = "none";
+  // header.style.display = "none";
 
-  setTimeout(() => {
-    divLoading.style.display = "none";
-    infos.style.display = "block";
-    slideShow.style.display = "block";
-    header.style.display = "block";
-    body.style.overflowY = "visible";
-  }, 6000);
+  // setTimeout(() => {
+  //   divLoading.style.display = "none";
+  //   infos.style.display = "block";
+  //   slideShow.style.display = "block";
+  //   header.style.display = "block";
+  //   body.style.overflowY = "visible";
+  // }, 6000);
 
   var slideIndex = 0;
   carousel();
@@ -213,4 +169,12 @@
     x[slideIndex - 1].style.display = "block";
     setTimeout(carousel, 3000);
   }
+
+  const el = document.querySelector("#header")
+  const observer = new IntersectionObserver(
+    ([e]) => e.target.classList.toggle("is-pinned", e.intersectionRatio < 1),
+    { threshold: [1] }
+  );
+
+  observer.observe(el);
 </script>

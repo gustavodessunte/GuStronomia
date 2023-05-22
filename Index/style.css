@@ -1,0 +1,199 @@
+* {
+    font-family: "Helvetica", sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.slides {
+    width: 100%;
+}
+
+.imgGastronomia {
+    width: 95%;
+}
+
+.imgOQSinto {
+    width: 95%;
+}
+
+.imgGastronomia:hover {
+    transition: .5s;
+    width: 100%;
+    box-shadow: -10px 11px 50px rgba(0, 0, 0, 0.1);
+}
+
+.imgOQSinto:hover {
+    transition: .5s;
+    width: 100%;
+    box-shadow: 10px 11px 50px rgba(0, 0, 0, 0.1);
+}
+
+#divLoading {
+    background-color: rgba(0, 0, 0, 0.79);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.header {
+    background-color: #76c9c7;
+    position: sticky;
+    top: -1px;
+}
+.header.is-pinned {
+    background-color: #76c9c8ee;
+  } 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+}
+
+nav div img {
+    width: 100%
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 16px;
+}
+
+nav div ul li hr {
+    width: 4vh;
+    border: 1px solid black;
+    rotate: 90deg
+}
+
+#slideShow {
+    width: 100%;
+}
+
+#infos {
+    margin-top: 10vh;
+    width: 100%
+}
+
+nav div ul li a img {
+    width: 3vw;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #76c9c7;
+    color: black;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+   
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    transition: .4s;
+    background-color: rgba(95, 171, 169, 0.45);;
+  }
+
+.flexCenter {
+    justify-content: center;
+    display: flex
+}
+
+.divOqEGastronomia {
+    width: 30%;
+    display: flex;
+    align-items: center
+}
+
+.pTituloInfos{
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #aa4378;
+}
+
+.aCliqueAqui {
+    font-size: 15px;
+    color: #aa4378;
+
+}
+
+.aCliqueAqui:hover {
+    text-decoration: underline;
+}
+
+.flexCenter p {
+    width: 100%;
+    font-size: 16px
+}
+
+.pTxtInfos {
+    width: 100%;
+    font-size: 20px !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #a1a1a1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #63a8a7; 
+    border-radius: 5px;
+    
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #487978; 
+  }
