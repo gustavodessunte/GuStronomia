@@ -10,6 +10,67 @@
   <style></style>
 
   <body>
+    <header class="header" id="header">
+      <nav>
+        <div >
+          <a href="../Index/index.html" >
+            <img style="width: 70%" src="../assets/logo.png" />
+          </a>
+        </div>
+        <div style="display: flex; align-items: center">
+          <div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <a href="../Receitas/receitas.html"> RECEITAS </a>
+              </button>
+              <div class="dropdown-content">
+                <a href="../Receitas/receitas.html#cardDoces">DOCES</a>
+                <div style="display: flex; justify-content: center">
+                  <hr class="hrDropdown" />
+                </div>
+                <a href="../Receitas/receitas.html#cardSalgados">SALGADOS</a>
+                <div style="display: flex; justify-content: center">
+                  <hr class="hrDropdown" />
+                </div>
+                <a href="../Receitas/receitas.html#cardDrinks">DRINKS</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <hr class="hrMenu" />
+          </div>
+          <div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <a href="../Gastronomia/gastronomia.html"> GASTRONOMIA </a>
+              </button>
+              <div class="dropdown-content">
+                <a href="../Gastronomia/gastronomia.html#divOQGastronomia"
+                  >O QUE É?</a
+                >
+                <div style="display: flex; justify-content: center">
+                  <hr class="hrDropdown" />
+                </div>
+                <a href="#"
+                  >COMO CHEGOU<br />
+                  EM MINHA VIDA?</a
+                >
+              </div>
+            </div>
+          </div>
+          <div>
+            <hr class="hrMenu" />
+          </div>
+          <div>
+            <a href="">
+              <img src="../assets/Account circle.svg" />
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
     <div style="margin-top: 6%" id="telaReceitas">
       <div id="divDoces">
         <div style="display: flex; justify-content: center">
@@ -188,8 +249,6 @@
     var btn = `btnVerMais${x.nomeBtn}`;
     var ajusteBtn = `descDoce${x.nomeBtn}`;
 
-    console.log(btn);
-    console.log(ajusteBtn);
 
     containerDoces.innerHTML += contentDoces;
 
