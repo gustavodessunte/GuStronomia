@@ -1,12 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="styleCadastro.css" />
+  </head>
+
+  <body>
+    <div style="width: 5%; margin-left: 2%; margin-top: 2%">
+      <a href="../index.html" style="display: flex; align-items: center">
+        <img
+          style="rotate: -90deg; width: 55%"
+          src="../assets/icons8-divisa-circulada-acima-100.png"
+        />
+        <span style="color: black; margin-left: 5%">VOLTAR</span>
+      </a>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center">
+      <div
+        style="
+          box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.25);
+          width: 47%;
+          border-radius: 15px 15px 15px 15px;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            background-color: #aa4378;
+            border-radius: 15px 15px 0 0;
+          "
+        >
+          <h1 style="color: white">CADASTRO</h1>
+        </div>
+        <div
+          style="
+            margin-top: 8%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 8%;
+          "
+        >
+          <div style="width: 80%">
+            <div>
+              <label for="iptLogin">LOGIN</label><br />
+              <input class="inputTxt" id="iptLogin" type="text" />
+            </div>
+            <div style="margin-top: 3%; display: flex; align-items: center">
+              <div style="width: 48%; margin-right: 2%">
+                <label for="iptSenha">SENHA</label><br />
+                <input class="inputTxt" id="iptSenha" type="password" />
+              </div>
+              <div style="width: 48%; margin-left: 2%">
+                <label for="iptCheckSenha">REPETIR SENHA</label><br />
+                <input class="inputTxt" id="iptCheckSenha" type="password" />
+              </div>
+            </div>
+            <div style="margin-top: 3%">
+              <label for="ipEmail">EMAIL</label><br />
+              <input class="inputTxt" id="iptEmail" type="text" />
+            </div>
+            <div style="margin-top: 3%">
+              <div style="display: flex; align-items: center">
+                <p style="margin-bottom: 1%">TIPO DE ALIMENTO PREFERIDO:</p>
+                <br />
+              </div>
+              <div style="display: flex; align-items: center">
+                <input
+                  type="radio"
+                  id="iptDoce"
+                  name="alimento_fav"
+                  value="doce"
+                />
+                <label for="doce">DOCE</label>
+                <input
+                  type="radio"
+                  id="iptSalgado"
+                  name="alimento_fav"
+                  value="salgado"
+                />
+                <label for="salgado">SALGADO</label>
+                <input
+                  type="radio"
+                  id="iptdrink"
+                  name="alimento_fav"
+                  value="drink"
+                />
+                <label for="drink">DRINK</label>
+              </div>
+              <div>
+                <p>
+                  Já possui Login?
+                  <span
+                    ><a
+                      href="../Login/login.html"
+                      style="text-decoration: none; color: #76c9c7"
+                      >Clique Aqui.</a
+                    ></span
+                  >
+                </p>
+              </div>
+              <div
+                style="display: flex; margin-top: 10%; justify-content: center"
+              >
+                <div style="width: 50%; margin-right: 1%">
+                  <button
+                    style="
+                      background: #b27494;
+                      border: none;
+                      width: 100%;
+                      border-radius: 22px;
+                      height: 8vh;
+                      font-size: 22px;
+                      color: white;
+                    "
+                  >
+                    CONFIRMAR
+                  </button>
+                </div>
+                <div style="width: 50%; margin-left: 1%">
+                  <button
+                    style="
+                      background: #dea1c0;
+                      border: none;
+                      width: 100%;
+                      border-radius: 22px;
+                      height: 8vh;
+                      font-size: 22px;
+                      color: white;
+                    "
+                  >
+                    LIMPAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end;">
+      <img src="../assets/logoPagCadastros.png" alt="" srcset="" />
+    </div>
+  </body>
 </html>
