@@ -159,6 +159,14 @@
         </div>
         <div style="display: flex; justify-content: center; margin-top: 4%">
           <h2>INGREDIENTES:</h2>
+          <select id="qntdReceitas" onchange="AtualizarValores()">
+            <option value="0.5">1/2 receita</option>
+            <option value="1">1 receita</option>
+            <option value="1.5">1 e 1/2 receita</option>
+            <option value="2">2 receitas</option>
+            <option value="2.5">2 e 1/2 receitas</option>
+            <option value="3">3 receitas</option>
+          </select>
         </div>
         <div>
           <div style="display: flex; justify-content: center">
@@ -220,7 +228,7 @@
       nomeBtn: "opera",
       ingredientesCompletos: `<b>MASSA</b>
         <ul>
-          <li>60 g de farinha de trigo</li>
+          <li>${60 * qntdReceitas.value} g de farinha de trigo</li>
           <li>150 g de farinha de amêndoas</li>
           <li>150 g de açúcar de confeiteiro</li>
           <li>4 ovos + 4 claras</li>
@@ -240,7 +248,7 @@
 
         <b>GANACHE DE CHOCOLATE</b>
         <ul>
-          <li>300 g de chocolate meio amargo</li>
+          <li>${300} g de chocolate meio amargo</li>
           <li>200 g de creme de leite</li>
         </ul>
         <b>PARA MONTAR A TORTA</b>
@@ -304,6 +312,9 @@
       descDoce:
         "O bolo veludo vermelho, também conhecido pelo nome em inglês red velvet, é um bolo popular, com uma coloração vermelha ou marrom-avermelhada.",
       nomeBtn: "redVelvet",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
     },
     {
       id: 3,
@@ -312,6 +323,9 @@
       descDoce:
         "O Soufflé Glacé é uma sobremesa cheia de charme! Tem cara de soufflé e textura de sorvete, refresca",
       nomeBtn: "sufle",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
     },
   ];
   var arraySalgados = [
@@ -322,6 +336,9 @@
       descSalgado:
         "Estrogonofe é um prato originário da culinária russa composto de camarões servidos num molho de creme de leite.",
       nomeBtn: "estrogonofe",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
     },
     {
       id: 5,
@@ -330,6 +347,9 @@
       descSalgado:
         "Steak au poivre ou bife de pimenta é um prato francês que consiste em um bife, tradicionalmente um filé mignon, revestido com pimenta grosseiramente rachada",
       nomeBtn: "steak",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
     },
     {
       id: 6,
@@ -338,6 +358,9 @@
       descSalgado:
         "O Soufflé Glacé é uma sobremesa cheia de charme! Tem cara de soufflé e textura de sorvete, refresca",
       nomeBtn: "fliMignon",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
     },
   ];
   var arrayDrinks = [
@@ -348,6 +371,9 @@
       desDrink:
         "O Lagoa Azul é um coquetel francês com blue Curaçao misturado com vodka e limonada.",
       nomeBtn: "lagoa",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
     },
     {
       id: 8,
@@ -356,6 +382,9 @@
       desDrink:
         "A margarita é um drink mexicano que leva tequila, sal, açúcar e frutas cítricas, como limão e laranja",
       nomeBtn: "margarita",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
     },
     {
       id: 9,
@@ -364,6 +393,9 @@
       desDrink:
         "Um cosmopolitan, ou simplesmente cosmo, é uma bebida alcoólica, ou um coquetel feito com vodca, triple sec, suco de oxicoco e suco de limão espremido",
       nomeBtn: "cosmopolitan",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
     },
   ];
 
@@ -505,9 +537,25 @@
   }
   function VerMaisSalgados(num) {
     telaReceitas.style.display = "none";
-    if (num == 4) {
-    } else if (num == 5) {
-    } else if (num == 6) {
+    telaReceita.style.display = "block";
+    if (num == 1) {
+      titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arraySalgados[0].nomeSalgado}</b></p>`;
+      imgReceita.innerHTML = `<img style="width: 40%;" src="${arraySalgados[0].imgSalgado}" />`;
+      descCompleta.innerHTML = `${arraySalgados[0].descSalgadoCompleto}<small>Tudo Gostoso</small>`;
+      ingredientesCompletos.innerHTML = `${arraySalgados[0].ingredientesCompletos}`;
+      modoDePreparoCompleto.innerHTML = `${arraySalgados[0].modoDePreparo}`;
+    } else if (num == 2) {
+      titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arraySalgados[1].nomeSalgado}</b></p>`;
+      imgReceita.innerHTML = `<img style="width: 40%;" src="${arraySalgados[1].imgSalgado}" />`;
+      descCompleta.innerHTML = `${arraySalgados[1].descSalgadoCompleto}<small>Tudo Gostoso</small>`;
+      ingredientesCompletos.innerHTML = `${arraySalgados[1].ingredientesCompletos}`;
+      modoDePreparoCompleto.innerHTML = `${arraySalgados[1].modoDePreparo}`;
+    } else if (num == 3) {
+      titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arraySalgados[2].nomeSalgado}</b></p>`;
+      imgReceita.innerHTML = `<img style="width: 40%;" src="${arraySalgados[2].imgSalgado}" />`;
+      descCompleta.innerHTML = `${arraySalgados[2].descSalgadoCompleto}<small>Tudo Gostoso</small>`;
+      ingredientesCompletos.innerHTML = `${arraySalgados[2].ingredientesCompletos}`;
+      modoDePreparoCompleto.innerHTML = `${arraySalgados[2].modoDePreparo}`;
     }
   }
   function VerMaisDrinks(num) {
@@ -534,5 +582,188 @@
     modoDePreparoCompleto.innerHTML = '';
     telaReceitas.style.display = 'block';
     telaReceita.style.display = 'none';
+  }
+
+  function AtualizarValores(){
+    var arrayDoces = [
+    {
+      id: 1,
+      imgDoce: "./assets/tortaOpera.jpg",
+      nomeDoce: "TORTA ÒPERA",
+      descDoce:
+        "O ópera é um delicado bolo gelado montado em camadas, e que já nasceu como um clássico da confeitaria francesa",
+      nomeBtn: "opera",
+      ingredientesCompletos: `<b>MASSA</b>
+        <ul>
+          <li>${60 * qntdReceitas.value} g de farinha de trigo</li>
+          <li>150 g de farinha de amêndoas</li>
+          <li>150 g de açúcar de confeiteiro</li>
+          <li>4 ovos + 4 claras</li>
+          <li>40 g de açúcar refinado</li>
+          <li>3 colheres (sopa) de manteiga derretida</li>
+        </ul>
+          
+        <b>CREME DE MANTEIGA</b>
+        <ul>
+          <li>200 g de açúcar</li>
+          <li>40 ml de água</li>
+          <li>1 ovo + 2 gemas</li>
+          <li>350 g de manteiga</li>
+          <li>85 g de chocolate derretido</li>
+          <li>1 colher (café) de café solúvel</li>
+        </ul>
+
+        <b>GANACHE DE CHOCOLATE</b>
+        <ul>
+          <li>${300} g de chocolate meio amargo</li>
+          <li>200 g de creme de leite</li>
+        </ul>
+        <b>PARA MONTAR A TORTA</b>
+        <ul>
+          <li>Chocolate derretido</li>
+          <li>Café + conhaque</li>
+          <li>200 g de chocolate ao leite derretido</li>
+          <li>1 colher (sopa) de óleo</li>  
+        </ul>`,
+      descDoceCompleta: `<p style="font-size:18px;">A torta ópera é uma das mais clássicas da confeitaria francesa. Foi criada em 1955 e tem esse nome porque a esposa do seu criador era uma admiradora da Opera Prima Ballerina e batizou a sobremesa como uma homenagem à peça. A torta ópera parece muito complicada de fazer...e é! Ela tem várias camadas e seu preparo envolve muitos processos: é necessário fazer a massinha chamada de biscuit joconde, um creme de manteiga, uma ganache de chocolate e ter muita paciência, mas se você quiser se aventurar na cozinha para fazer essa sobremesa especial, nós vamos te ajudar! Confira a seguir os ingredientes e modo de preparo da torta ópera:</p>`,
+      modoDePreparo: `<h4>MASSA</h4>
+      <p>
+        Numa tigela, peneira a farinha de amêndoa, de trigo e o açúcar de confeiteiro. Reserve.
+        Na batedeira, bata as claras até que comecem a espumar.
+        Adicione o açúcar refinado e bata mais um pouco até que fiquem em neve. Reserve.
+        Na batedeira, bata os ovos e, quando começarem a espumar, coloque aos poucos a misture de farinha de amêndoa, de trigo e açúcar de confeiteiro.
+        Depois que ficar homogêneo, desligue e adicione, aos poucos, as claras em neve.
+        Acrescente a manteiga derretida.
+        Coloque a massa numa forma para rocambole (forma baixa) forrada com papel-manteiga.
+        Leve em forno baixo por cerca de 10 minutos ou até que, ao colocar o dedo na massa, ela não grude.
+        Retire a forma e deixe esfriar.
+      </p>
+      
+      <h4>CREME DE MANTEIGA</h4>
+      <p>
+        Na batedeira, bata as gemas com o ovo em velocidade média.
+      Prepare uma calda com o açúcar e a água.
+      Aos poucos, adicione a calda às gemas e aumente a velocidade da batedeira. Acrescente o chocolate derretido.
+      Reduza a velocidade da batedeira e comece a acrescente a manteiga.
+      Coloque o café solúvel e bata por mais 5 minutos.
+      Reserve.
+      </p>
+
+      <h4>GANACHE DE CHOCOLATE</h4>
+        <p>
+          Em banho-maria, derreta o chocolate.
+          Acrescente o creme de leite e misture até que fique homogêneo.
+          Leve à geladeira.
+        </p>
+      <h4>MONTAGEM</h4>  
+        <p>
+          Derreta o chocolate em banho-maria
+          Coloque o óleo, misture e deixe esfriar.
+          Desenforme a massa em cima de um pano de prato úmido polvilhado com um pouco de açúcar.
+          Retire o papel-manteiga.
+          Com a ajuda de um aro ou régua, corte um pedaço grande e quadrado da massa. Guarde o restante da massa porque você vai precisar dele! O aro também é importante para a montagem: se você tiver, a sua torta ficará mais certinha!
+          Na primeira camada de massa, passe chocolate derretido e leve ao congelador por 5 minutos.
+          Forre a forma de rocambole de papel-manteiga e posicione o aro no centro dela: dentro dele, coloque a camada de massa que foi ao freezer com o chocolate virado para baixo.
+          Umedeça com uma mistura de café e conhaque (a bebida alcoólica é opcional).
+          Coloque uma camada de creme de manteiga e espalhe. Alise bem com a ajuda de uma espátula.
+          Coloque os pedaços de massa que sobraram, formando uma camada.
+          Umedeça com o café e conhaque.
+          Acrescente o ganache e depois o creme de manteiga. Alise bem.
+          Desenforme a torta se estiver fazendo dentro do aro e coloque o chocolate derretido já frio. Espalhe bem e alise com uma espátula.
+        </p>`
+    },
+    {
+      id: 2,
+      imgDoce: "./assets/redVelvet.png",
+      nomeDoce: "BOLO RED VELVET",
+      descDoce:
+        "O bolo veludo vermelho, também conhecido pelo nome em inglês red velvet, é um bolo popular, com uma coloração vermelha ou marrom-avermelhada.",
+      nomeBtn: "redVelvet",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
+    },
+    {
+      id: 3,
+      imgDoce: "./assets/souffleGlace.jpg",
+      nomeDoce: "SOUFFLÉ GLACÉ",
+      descDoce:
+        "O Soufflé Glacé é uma sobremesa cheia de charme! Tem cara de soufflé e textura de sorvete, refresca",
+      nomeBtn: "sufle",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
+    },
+  ];
+  var arraySalgados = [
+    {
+      id: 4,
+      imgSalgado: "./assets/estrogonofe.png",
+      nomeSalgado: "ESTROGONOFE DE CAMARÃO",
+      descSalgado:
+        "Estrogonofe é um prato originário da culinária russa composto de camarões servidos num molho de creme de leite.",
+      nomeBtn: "estrogonofe",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
+    },
+    {
+      id: 5,
+      imgSalgado: "./assets/steak.jfif",
+      nomeSalgado: "STEAK AU POIVRE",
+      descSalgado:
+        "Steak au poivre ou bife de pimenta é um prato francês que consiste em um bife, tradicionalmente um filé mignon, revestido com pimenta grosseiramente rachada",
+      nomeBtn: "steak",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
+    },
+    {
+      id: 6,
+      imgSalgado: "./assets/fileMignon.jpg",
+      nomeSalgado: "FILE MIGNON AO VINHO TINTO",
+      descSalgado:
+        "O Soufflé Glacé é uma sobremesa cheia de charme! Tem cara de soufflé e textura de sorvete, refresca",
+      nomeBtn: "fliMignon",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
+    },
+  ];
+  var arrayDrinks = [
+    {
+      id: 7,
+      imgDrink: "./assets/lagoaAzul.jpeg",
+      nomeDrink: "LAGOA AZUL",
+      desDrink:
+        "O Lagoa Azul é um coquetel francês com blue Curaçao misturado com vodka e limonada.",
+      nomeBtn: "lagoa",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
+    },
+    {
+      id: 8,
+      imgDrink: "./assets/peachMargarita.jpg",
+      nomeDrink: "PEACH MARGARITA",
+      desDrink:
+        "A margarita é um drink mexicano que leva tequila, sal, açúcar e frutas cítricas, como limão e laranja",
+      nomeBtn: "margarita",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
+    },
+    {
+      id: 9,
+      imgDrink: "./assets/cosmopolitan.png",
+      nomeDrink: "COSMOPOLITAN",
+      desDrink:
+        "Um cosmopolitan, ou simplesmente cosmo, é uma bebida alcoólica, ou um coquetel feito com vodca, triple sec, suco de oxicoco e suco de limão espremido",
+      nomeBtn: "cosmopolitan",
+      ingredientesCompletos: '',
+      descDoceCompleta: '',
+      modoDePreparo: ''
+    },
+  ];
   }
 </script>
