@@ -45,12 +45,16 @@
                 <a href="../Gastronomia/gastronomia.html"> GASTRONOMIA </a>
               </button>
               <div class="dropdown-content">
-                <a href="../Gastronomia/gastronomia.html#divOQGastronomia">O QUE É?</a>
+                <a href="../Gastronomia/gastronomia.html#divOQGastronomia"
+                  >O QUE É?</a
+                >
                 <div style="display: flex; justify-content: center">
                   <hr class="hrDropdown" />
                 </div>
-                <a href="../Gastronomia/gastronomia.html#divComoChegou">COMO CHEGOU<br />
-                  EM MINHA VIDA?</a>
+                <a href="../Gastronomia/gastronomia.html#divComoChegou"
+                  >COMO CHEGOU<br />
+                  EM MINHA VIDA?</a
+                >
               </div>
             </div>
           </div>
@@ -65,7 +69,6 @@
         </div>
       </nav>
     </header>
-
 
     <div style="margin-top: 6%" id="telaReceitas">
       <div id="divDoces">
@@ -129,9 +132,52 @@
         ></div>
       </div>
     </div>
-     <!-- Footer -->
 
-     <footer id="footer" style="background-color: #76c9c7">
+    <div id="telaReceita" style="display: none">
+      <div style="display: flex; align-items: center; width: 5%; margin-left: 2%; margin-top: 2%;  cursor: pointer;" onclick="VoltarTelaReceita()">
+          <img
+            style="rotate: -90deg; width: 55%"
+            src="../assets/icons8-divisa-circulada-acima-100.png"
+          />
+          <span style="color: black; margin-left: 5%">VOLTAR</span>
+      </div>
+      <div style="width: 100%">
+        <div
+          id="titleReceita"
+          style="display: flex; justify-content: center"
+        ></div>
+
+        <div
+          id="imgReceita"
+          style="display: flex; justify-content: center"
+        ></div>
+        <div style="display: flex; justify-content: center; margin-top: 4%">
+          <h2>HISTÓRIA DA RECEITA:</h2>
+        </div>
+        <div style="display: flex; justify-content: center">
+          <div id="descCompleta" style="width: 50%"></div>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 4%">
+          <h2>INGREDIENTES:</h2>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: center">
+            <div id="ingredientesCompletos" style="width: 50%"></div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 4%">
+          <h2>MODO DE PREPARO:</h2>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: center">
+            <div id="modoDePreparoCompleto" style="width: 50%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+
+    <footer id="footer" style="background-color: #76c9c7">
       <div
         style="
           display: flex;
@@ -172,6 +218,84 @@
       descDoce:
         "O ópera é um delicado bolo gelado montado em camadas, e que já nasceu como um clássico da confeitaria francesa",
       nomeBtn: "opera",
+      ingredientesCompletos: `<b>MASSA</b>
+        <ul>
+          <li>60 g de farinha de trigo</li>
+          <li>150 g de farinha de amêndoas</li>
+          <li>150 g de açúcar de confeiteiro</li>
+          <li>4 ovos + 4 claras</li>
+          <li>40 g de açúcar refinado</li>
+          <li>3 colheres (sopa) de manteiga derretida</li>
+        </ul>
+          
+        <b>CREME DE MANTEIGA</b>
+        <ul>
+          <li>200 g de açúcar</li>
+          <li>40 ml de água</li>
+          <li>1 ovo + 2 gemas</li>
+          <li>350 g de manteiga</li>
+          <li>85 g de chocolate derretido</li>
+          <li>1 colher (café) de café solúvel</li>
+        </ul>
+
+        <b>GANACHE DE CHOCOLATE</b>
+        <ul>
+          <li>300 g de chocolate meio amargo</li>
+          <li>200 g de creme de leite</li>
+        </ul>
+        <b>PARA MONTAR A TORTA</b>
+        <ul>
+          <li>Chocolate derretido</li>
+          <li>Café + conhaque</li>
+          <li>200 g de chocolate ao leite derretido</li>
+          <li>1 colher (sopa) de óleo</li>  
+        </ul>`,
+      descDoceCompleta: `<p style="font-size:18px;">A torta ópera é uma das mais clássicas da confeitaria francesa. Foi criada em 1955 e tem esse nome porque a esposa do seu criador era uma admiradora da Opera Prima Ballerina e batizou a sobremesa como uma homenagem à peça. A torta ópera parece muito complicada de fazer...e é! Ela tem várias camadas e seu preparo envolve muitos processos: é necessário fazer a massinha chamada de biscuit joconde, um creme de manteiga, uma ganache de chocolate e ter muita paciência, mas se você quiser se aventurar na cozinha para fazer essa sobremesa especial, nós vamos te ajudar! Confira a seguir os ingredientes e modo de preparo da torta ópera:</p>`,
+      modoDePreparo: `<h4>MASSA</h4>
+      <p>
+        Numa tigela, peneira a farinha de amêndoa, de trigo e o açúcar de confeiteiro. Reserve.
+        Na batedeira, bata as claras até que comecem a espumar.
+        Adicione o açúcar refinado e bata mais um pouco até que fiquem em neve. Reserve.
+        Na batedeira, bata os ovos e, quando começarem a espumar, coloque aos poucos a misture de farinha de amêndoa, de trigo e açúcar de confeiteiro.
+        Depois que ficar homogêneo, desligue e adicione, aos poucos, as claras em neve.
+        Acrescente a manteiga derretida.
+        Coloque a massa numa forma para rocambole (forma baixa) forrada com papel-manteiga.
+        Leve em forno baixo por cerca de 10 minutos ou até que, ao colocar o dedo na massa, ela não grude.
+        Retire a forma e deixe esfriar.
+      </p>
+      
+      <h4>CREME DE MANTEIGA</h4>
+      <p>
+        Na batedeira, bata as gemas com o ovo em velocidade média.
+      Prepare uma calda com o açúcar e a água.
+      Aos poucos, adicione a calda às gemas e aumente a velocidade da batedeira. Acrescente o chocolate derretido.
+      Reduza a velocidade da batedeira e comece a acrescente a manteiga.
+      Coloque o café solúvel e bata por mais 5 minutos.
+      Reserve.
+      </p>
+
+      <h4>GANACHE DE CHOCOLATE</h4>
+        <p>
+          Em banho-maria, derreta o chocolate.
+          Acrescente o creme de leite e misture até que fique homogêneo.
+          Leve à geladeira.
+        </p>
+      <h4>MONTAGEM</h4>  
+        <p>
+          Derreta o chocolate em banho-maria
+          Coloque o óleo, misture e deixe esfriar.
+          Desenforme a massa em cima de um pano de prato úmido polvilhado com um pouco de açúcar.
+          Retire o papel-manteiga.
+          Com a ajuda de um aro ou régua, corte um pedaço grande e quadrado da massa. Guarde o restante da massa porque você vai precisar dele! O aro também é importante para a montagem: se você tiver, a sua torta ficará mais certinha!
+          Na primeira camada de massa, passe chocolate derretido e leve ao congelador por 5 minutos.
+          Forre a forma de rocambole de papel-manteiga e posicione o aro no centro dela: dentro dele, coloque a camada de massa que foi ao freezer com o chocolate virado para baixo.
+          Umedeça com uma mistura de café e conhaque (a bebida alcoólica é opcional).
+          Coloque uma camada de creme de manteiga e espalhe. Alise bem com a ajuda de uma espátula.
+          Coloque os pedaços de massa que sobraram, formando uma camada.
+          Umedeça com o café e conhaque.
+          Acrescente o ganache e depois o creme de manteiga. Alise bem.
+          Desenforme a torta se estiver fazendo dentro do aro e coloque o chocolate derretido já frio. Espalhe bem e alise com uma espátula.
+        </p>`
     },
     {
       id: 2,
@@ -277,7 +401,6 @@
     var btn = `btnVerMais${x.nomeBtn}`;
     var ajusteBtn = `descDoce${x.nomeBtn}`;
 
-
     containerDoces.innerHTML += contentDoces;
 
     if (document.getElementById(ajusteBtn).clientHeight <= 76) {
@@ -359,9 +482,25 @@
 
   function VerMaisDoces(num) {
     telaReceitas.style.display = "none";
+    telaReceita.style.display = "block";
     if (num == 1) {
+      titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arrayDoces[0].nomeDoce}</b></p>`;
+      imgReceita.innerHTML = `<img style="width: 40%;" src="${arrayDoces[0].imgDoce}" />`;
+      descCompleta.innerHTML = `${arrayDoces[0].descDoceCompleta}<small>Tudo Gostoso</small>`;
+      ingredientesCompletos.innerHTML = `${arrayDoces[0].ingredientesCompletos}`;
+      modoDePreparoCompleto.innerHTML = `${arrayDoces[0].modoDePreparo}`;
     } else if (num == 2) {
+      titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arrayDoces[1].nomeDoce}</b></p>`;
+      imgReceita.innerHTML = `<img style="width: 40%;" src="${arrayDoces[1].imgDoce}" />`;
+      descCompleta.innerHTML = `${arrayDoces[1].descDoceCompleta}<small>Tudo Gostoso</small>`;
+      ingredientesCompletos.innerHTML = `${arrayDoces[1].ingredientesCompletos}`;
+      modoDePreparoCompleto.innerHTML = `${arrayDoces[1].modoDePreparo}`;
     } else if (num == 3) {
+      titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arrayDoces[2].nomeDoce}</b></p>`;
+      imgReceita.innerHTML = `<img style="width: 40%;" src="${arrayDoces[2].imgDoce}" />`;
+      descCompleta.innerHTML = `${arrayDoces[2].descDoceCompleta}<small>Tudo Gostoso</small>`;
+      ingredientesCompletos.innerHTML = `${arrayDoces[2].ingredientesCompletos}`;
+      modoDePreparoCompleto.innerHTML = `${arrayDoces[2].modoDePreparo}`;
     }
   }
   function VerMaisSalgados(num) {
@@ -377,7 +516,6 @@
     } else if (num == 8) {
     } else if (num == 9) {
     }
-
   }
   const el = document.querySelector("#header");
   const observer = new IntersectionObserver(
@@ -386,4 +524,15 @@
   );
 
   observer.observe(el);
+
+
+  function VoltarTelaReceita(){
+    titleReceita.innerHTML = '';
+    imgReceita.innerHTML = '';
+    descCompleta.innerHTML = '';
+    ingredientesCompletos.innerHTML = '';
+    modoDePreparoCompleto.innerHTML = '';
+    telaReceitas.style.display = 'block';
+    telaReceita.style.display = 'none';
+  }
 </script>
