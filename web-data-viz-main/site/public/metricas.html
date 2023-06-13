@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styleMetricas.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav>
+        <div>
+          <a href="index.html">
+            <img style="width: 70%" src="../assets/logo.png" />
+          </a>
+        </div>
+        <div style="display: flex; align-items: center">
+          <div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <a href="receitas.html"> RECEITAS </a>
+              </button>
+              <div class="dropdown-content">
+                <a href="receitas.html#cardDoces">DOCES</a>
+                <div style="display: flex; justify-content: center">
+                  <hr class="hrDropdown" />
+                </div>
+                <a href="receitas.html#cardSalgados">SALGADOS</a>
+                <div style="display: flex; justify-content: center">
+                  <hr class="hrDropdown" />
+                </div>
+                <a href="receitas.html#cardDrinks">DRINKS</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <hr class="hrMenu" />
+          </div>
+          <div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <a href="gastronomia.html"> GASTRONOMIA </a>
+              </button>
+              <div class="dropdown-content">
+                <a href="gastronomia.html#divOQGastronomia">O QUE É?</a>
+                <div style="display: flex; justify-content: center">
+                  <hr class="hrDropdown" />
+                </div>
+                <a href="gastronomia.html#divComoChegou"
+                  >COMO CHEGOU<br />
+                  EM MINHA VIDA?</a
+                >
+              </div>
+            </div>
+          </div>
+          <div>
+            <hr class="hrMenu" />
+          </div>
+          <div>
+            <a href="cadastro.html" id="naoCadastrado" style="display: block">
+              <img src="../assets/Account circle.svg" />
+            </a>
+            <a href="metricas.html" id="cadastrado" style="display: none">
+              <p id="nomeUsuario"></p>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div style="margin-top: 3%; display: flex; justify-content: center">
+      <div style="width: 80%">
+        <div>
+          <p style="margin-bottom: 6.5px; color: #aa4378; font-weight: 700">
+            INFORMAÇÕES DO USUÁRIO
+          </p>
+        </div>
+        <div style="width: 100%; align-items: flex-end; display: flex">
+          <hr style="margin-left: 1px; width: 100%; border: 1px dashed gray" />
+        </div>
+        <div style="display: flex; margin-top: 3%">
+          <div style="width: 30.5%; margin-right: 2%">
+            <label for="nomeUsuarioMostrar">Nome de Usuário</label><br />
+            <input
+              disabled
+              class="inputTxt"
+              type="text"
+              id="nomeUsuarioMostrar"
+            />
+          </div>
+          <div style="width: 30.5%; margin-right: 2%; margin-left: 2%">
+            <label for="telCelularMostrar">Tel. Celular</label><br />
+            <input
+              disabled
+              class="inputTxt"
+              type="text"
+              id="telCelularMostrar"
+            />
+          </div>
+          <div style="width: 30.5%; margin-left: 2%">
+            <label for="bairroMostrar">Bairro</label><br />
+            <input disabled class="inputTxt" type="text" id="bairroMostrar" />
+          </div>
+        </div>
+        <div style="display: flex; margin-top: 2%">
+          <div style="width: 30.5%; margin-right: 2%">
+            <label for="cidadeMostrar">Cidade</label><br />
+            <input disabled class="inputTxt" type="text" id="cidadeMostrar" />
+          </div>
+          <div style="width: 30.5%; margin-right: 2%; margin-left: 2%">
+            <label for="ruaMostrar">Rua</label><br />
+            <input disabled class="inputTxt" type="text" id="ruaMostrar" />
+          </div>
+          <div style="width: 30.5%; margin-left: 2%">
+            <label for="numeroMostrar">Número</label><br />
+            <input disabled class="inputTxt" type="text" id="numeroMostrar" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 3%; display: flex; justify-content: center">
+      <div style="width: 80%;">
+        <div>
+          <p style="margin-bottom: 6.5px; color: #aa4378; font-weight: 700">
+            ALIMENTOS FAVORITOS DOS USUÁRIOS:
+          </p>
+        </div>
+        <div style="width: 100%; align-items: flex-end; display: flex">
+          <hr style="margin-left: 1px; width: 100%; border: 1px dashed gray" />
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 3%; display: flex; justify-content: center">
+      <div style="width: 80%; display: flex; justify-content: center;">
+        <div class="graph" style="width: 30%;">
+          <canvas id="myChartAlimentos"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer" style="margin-top: 25vh; background-color: #76c9c7">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          padding: 3% 3%;
+          justify-content: space-around;
+        "
+      >
+        <div style="width: 100%">
+          <img style="width: 35%" src="../assets/logoOpacidade.png" />
+        </div>
+        <div style="width: 100%">
+          <p>TODOS DIREITOS RESERVADOS &reg;</p>
+        </div>
+        <div style="width: 32%">
+          <div style="display: flex; align-items: center; width: 100%">
+            <a style="width: 11%" href=""
+              ><img style="width: 100%" src="../assets/facebook-f.svg"
+            /></a>
+            <a style="width: 18%; margin: 0 10%" href=""
+              ><img style="width: 100%" src="../assets/instagram.svg"
+            /></a>
+            <a style="width: 18%" href=""
+              ><img style="width: 100%" src="../assets/linkedin.svg"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+<script>
+  var labelsAlimentos = [];
+  var dataAlimentos = [];
+  const ctx = document.getElementById("myChartAlimentos");
+
+  var chart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: labelsAlimentos,
+      datasets: [
+        {
+          label: "Alimentos Preferidos",
+          data: dataAlimentos,
+          borderWidth: 1,
+          backgroundColor: [
+            "#76c9c7",
+            "#aa4378",
+            "#A5E1E0",
+          ],
+          hoverOffset: 4,
+        },
+      ],
+    },
+    options: {
+      scales: {
+      },
+    },
+  });
+
+  selectQntdDoces();
+  selectQntdSalgados();
+  selectQntdDrinks();
+
+  selectInfosUsuarios(sessionStorage.getItem("IDLOGIN"));
+  nomeUsuario.innerHTML = `${sessionStorage.getItem("NOMEUSUARIO")}`;
+  var teste = sessionStorage.getItem("NOMEUSUARIO");
+  if (teste != "" || teste == undefined || teste == null) {
+    naoCadastrado.style.display = "none";
+    cadastrado.style.display = "block";
+  } else {
+    naoCadastrado.style.display = "block";
+    cadastrado.style.display = "none";
+  }
+
+  function selectInfosUsuarios(fkLogin) {
+    console.log(fkLogin);
+    fetch(`/usuario/selectUsuariosPorFkLogin/${fkLogin}`)
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            nomeUsuarioMostrar.value = resposta[0].nome;
+            telCelularMostrar.value = resposta[0].telCelular;
+            bairroMostrar.value = resposta[0].bairro;
+            cidadeMostrar.value = resposta[0].cidade;
+            ruaMostrar.value = resposta[0].rua;
+            numeroMostrar.value = resposta[0].numero;
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ Usuario: ${error.message}`
+        );
+      });
+  }
+
+  var qntdDoces = 0;
+  function selectQntdDoces() {
+    console.log();
+    fetch(`/receitas/listarQntdDoces`)
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            qntdDoces = resposta[0].qtdDoces;
+            labelsAlimentos.push("DOCES");
+            dataAlimentos.push(qntdDoces);
+            chart.update();
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ Usuario: ${error.message}`
+        );
+      });
+  }
+
+  var qntdSalgados = 0;
+  function selectQntdSalgados() {
+    console.log();
+    fetch(`/receitas/listarQntdSalgados`)
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            qntdSalgados = resposta[0].qtdSalgados;
+            labelsAlimentos.push("SALGADOS");
+            dataAlimentos.push(qntdSalgados);
+            chart.update();
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ Usuario: ${error.message}`
+        );
+      });
+  }
+
+  var qntdDrinks = 0;
+  function selectQntdDrinks() {
+    console.log();
+    fetch(`/receitas/listarQntdDrinks`)
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(qntdDrinks);
+            qntdDrinks = Number(resposta[0].qtdDrinks);
+            labelsAlimentos.push("DRINKS");
+            dataAlimentos.push(qntdDrinks);
+            console.log(qntdDrinks);
+            chart.update();
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ Usuario: ${error.message}`
+        );
+      });
+  }
+</script>

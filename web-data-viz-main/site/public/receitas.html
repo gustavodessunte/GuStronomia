@@ -49,8 +49,10 @@
                 <div style="display: flex; justify-content: center">
                   <hr class="hrDropdown" />
                 </div>
-                <a href="gastronomia.html#divComoChegou">COMO CHEGOU<br />
-                  EM MINHA VIDA?</a>
+                <a href="gastronomia.html#divComoChegou"
+                  >COMO CHEGOU<br />
+                  EM MINHA VIDA?</a
+                >
               </div>
             </div>
           </div>
@@ -58,8 +60,11 @@
             <hr class="hrMenu" />
           </div>
           <div>
-            <a href="cadastro.html">
+            <a href="cadastro.html" id="naoCadastrado" style="display: block">
               <img src="../assets/Account circle.svg" />
+            </a>
+            <a href="metricas.html" id="cadastrado" style="display: none">
+              <p id="nomeUsuario"></p>
             </a>
           </div>
         </div>
@@ -224,6 +229,16 @@
   </body>
 </html>
 <script>
+  nomeUsuario.innerHTML = `${sessionStorage.getItem("NOMEUSUARIO")}`;
+  var teste = sessionStorage.getItem("NOMEUSUARIO");
+  if (teste != "" || teste == undefined || teste == null) {
+    naoCadastrado.style.display = "none";
+    cadastrado.style.display = "block";
+  } else {
+    naoCadastrado.style.display = "block";
+    cadastrado.style.display = "none";
+  }
+
   const containerDoces = document.getElementById("cardDoces");
   const containerSalgados = document.getElementById("cardSalgados");
   const containerDrinks = document.getElementById("cardDrinks");
@@ -234,8 +249,6 @@
   GetDoces();
   GetSalgados();
   GetDrinks();
-
- 
 
   var qntdReceita = 1;
   function VerMaisDoces(num) {
@@ -259,52 +272,68 @@
         <ul>
           <li>${200 * qntdReceita} g de açúcar</li>
           <li>${40 * qntdReceita} ml de água</li>
-          <li>${1 * qntdReceita} ovo + ${2* qntdReceita} gemas</li>
+          <li>${1 * qntdReceita} ovo + ${2 * qntdReceita} gemas</li>
           <li>${350 * qntdReceita} g de manteiga</li>
           <li>${85 * qntdReceita} g de chocolate derretido</li>
-          <li>${1*  qntdReceita} colher (café) de café solúvel</li>
+          <li>${1 * qntdReceita} colher (café) de café solúvel</li>
         </ul>
 
         <b>GANACHE DE CHOCOLATE</b>
         <ul>
           <li>${300 * qntdReceita} g de chocolate meio amargo</li>
-          <li>${200* qntdReceita} g de creme de leite</li>
+          <li>${200 * qntdReceita} g de creme de leite</li>
         </ul>
         <b>PARA MONTAR A TORTA</b>
         <ul>
           <li>Chocolate derretido</li>
           <li>Café + conhaque</li>
-          <li>${200* qntdReceita} g de chocolate ao leite derretido</li>
-          <li>${1* qntdReceita} colher (sopa) de óleo</li>  
+          <li>${200 * qntdReceita} g de chocolate ao leite derretido</li>
+          <li>${1 * qntdReceita} colher (sopa) de óleo</li>  
         </ul>`;
       modoDePreparoCompleto.innerHTML = `${arrayDoces[0].modoPreparo}`;
     } else if (num == 2) {
       titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arrayDoces[1].nomeReceita}</b></p>`;
       imgReceita.innerHTML = `<img style="width: 40%;" src="${arrayDoces[1].caminhoImgReceita}" />`;
       descCompleta.innerHTML = `${arrayDoces[1].descReceitaCompleta}`;
-      ingredientesCompletos.innerHTML = 
-      `
+      ingredientesCompletos.innerHTML = `
       <h4><b>MASSA</b></h4>
       <ul>
       <li>${3 * qntdReceita} colheres (sopa) de manteiga</li>  
       <li>${100 * qntdReceita} ml de leite aquecido chocolate em pó</li>  
-      <li>${2 * qntdReceita} e ${0.5 * qntdReceita } colheres (sopa) de chocolate em pó</li>
-      <li>${1 * qntdReceita} e ${0.5 * qntdReceita} colher (sopa) de corante vermelho em gel</li>
+      <li>${2 * qntdReceita} e ${
+        0.5 * qntdReceita
+      } colheres (sopa) de chocolate em pó</li>
+      <li>${1 * qntdReceita} e ${
+        0.5 * qntdReceita
+      } colher (sopa) de corante vermelho em gel</li>
       <li>${4 * qntdReceita} ovos</li>
       <li>${1 * qntdReceita} e ${0.25 * qntdReceita} de xícara de açúcar</li>
-      <li>${1 * qntdReceita} xícara e ${0.5 * qntdReceita} colher (sopa) de farinha de trigo</li>
+      <li>${1 * qntdReceita} xícara e ${
+        0.5 * qntdReceita
+      } colher (sopa) de farinha de trigo</li>
       <li>${0.5 * qntdReceita} colher (sopa) de fermento em pó</li>
       <li>${0.5 * qntdReceita} colher (chá) de vinagre branco</li>
       </ul>
-      <small>Tudo Gostoso</small>`
-      ;
+      <small>Tudo Gostoso</small>`;
+      // modoDePreparoCompleto.innerHTML = ``;
       modoDePreparoCompleto.innerHTML = `${arrayDoces[1].modoPreparo}`;
     } else if (num == 3) {
-      titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arrayDoces[2].nomeDoce}</b></p>`;
-      imgReceita.innerHTML = `<img style="width: 40%;" src="${arrayDoces[2].imgDoce}" />`;
-      descCompleta.innerHTML = `${arrayDoces[2].descDoceCompleta}<small>Tudo Gostoso</small>`;
-      ingredientesCompletos.innerHTML = `${arrayDoces[2].ingredientesCompletos}`;
-      modoDePreparoCompleto.innerHTML = `${arrayDoces[2].modoDePreparo}`;
+      titleReceita.innerHTML = `<p style="font-size: 40px;"><b>${arrayDoces[2].nomeReceita}</b></p>`;
+      imgReceita.innerHTML = `<img style="width: 40%;" src="${arrayDoces[2].caminhoImgReceita}" />`;
+      descCompleta.innerHTML = `${arrayDoces[2].descReceitaCompleta}<small>Tudo Gostoso</small>`;
+      ingredientesCompletos.innerHTML = `
+      <ul>
+        <li>300g de morangos frescos</li> 
+        <li>150g de açúcar</li>
+        <li>Suco de 1/2 limão</li>
+        <li>5 folhas de gelatina + 5 colheres (sopa) de água fria para hidratar</li>
+        <li>300ml de creme de leite fresco</li>
+        <li>100ml de creme de leite fresco</li>
+        <li>2 colheres (sopa) de açúcar</li>
+        <li>1/2 colher (chá) de baunilha</li>
+      </ul>
+      `;
+      modoDePreparoCompleto.innerHTML = `${arrayDoces[2].modoPreparo}`;
     }
   }
   function VerMaisSalgados(num) {
@@ -500,7 +529,7 @@
 
   function CriarCardsDrinks() {
     arrayDrinks.forEach((z) => {
-    const contentDrinks = `
+      const contentDrinks = `
         <div class="card">
             <div>
                 <div id="imgDrinks">
@@ -525,19 +554,21 @@
             </div>
         </div>
         `;
-    containerDrinks.innerHTML += contentDrinks;
+      containerDrinks.innerHTML += contentDrinks;
 
-    var btn = `btnVerMais${z.nomeBtn}`;
-    var ajusteBtn = `descDrink${z.nomeBtn}`;
+      var btn = `btnVerMais${z.nomeBtn}`;
+      var ajusteBtn = `descDrink${z.nomeBtn}`;
 
-    if (document.getElementById(ajusteBtn).clientHeight <= 76) {
-      document.getElementById(btn).style.marginTop = "38px";
-    }
-  });
+      if (document.getElementById(ajusteBtn).clientHeight <= 76) {
+        document.getElementById(btn).style.marginTop = "38px";
+      }
+    });
   }
 
-  document.getElementById('qntdReceitas').onchange = function(){ AtualizarValores()};
-  function AtualizarValores(){
+  document.getElementById("qntdReceitas").onchange = function () {
+    AtualizarValores();
+  };
+  function AtualizarValores() {
     qntdReceita = Number(qntdReceitas.value);
     ingredientesCompletos.innerHTML = `<b>MASSA</b>
         <ul>
@@ -553,23 +584,23 @@
         <ul>
           <li>${200 * qntdReceita} g de açúcar</li>
           <li>${40 * qntdReceita} ml de água</li>
-          <li>${1 * qntdReceita} ovo + ${2* qntdReceita} gemas</li>
+          <li>${1 * qntdReceita} ovo + ${2 * qntdReceita} gemas</li>
           <li>${350 * qntdReceita} g de manteiga</li>
           <li>${85 * qntdReceita} g de chocolate derretido</li>
-          <li>${1* qntdReceita} colher (café) de café solúvel</li>
+          <li>${1 * qntdReceita} colher (café) de café solúvel</li>
         </ul>
 
         <b>GANACHE DE CHOCOLATE</b>
         <ul>
           <li>${300 * qntdReceita} g de chocolate meio amargo</li>
-          <li>${200* qntdReceita} g de creme de leite</li>
+          <li>${200 * qntdReceita} g de creme de leite</li>
         </ul>
         <b>PARA MONTAR A TORTA</b>
         <ul>
           <li>Chocolate derretido</li>
           <li>Café + conhaque</li>
-          <li>${200* qntdReceita} g de chocolate ao leite derretido</li>
-          <li>${1* qntdReceita} colher (sopa) de óleo</li>  
-        </ul>`
+          <li>${200 * qntdReceita} g de chocolate ao leite derretido</li>
+          <li>${1 * qntdReceita} colher (sopa) de óleo</li>  
+        </ul>`;
   }
 </script>

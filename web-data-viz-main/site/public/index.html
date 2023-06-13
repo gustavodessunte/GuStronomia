@@ -63,8 +63,11 @@
             <hr class="hrMenu" />
           </div>
           <div>
-            <a href="cadastro.html">
+            <a href="cadastro.html" id="naoCadastrado" style="display: block;">
               <img src="../assets/Account circle.svg" />
+            </a>
+            <a href="metricas.html" id="cadastrado" style="display: none;">
+             <p id="nomeUsuario"></p>
             </a>
           </div>
         </div>
@@ -96,7 +99,7 @@
             <div class="flexCenter" style="margin-top: 4%">
               <p>
                 Para mais informações
-                <span><a class="aCliqueAqui" href="">clique aqui.</a></span>
+                <span><a class="aCliqueAqui" href="gastronomia.html#divOQGastronomia">clique aqui.</a></span>
               </p>
             </div>
           </div>
@@ -118,7 +121,7 @@
             <div class="flexCenter" style="margin-top: 4%">
               <p>
                 Para mais informações
-                <span><a class="aCliqueAqui" href="">clique aqui.</a></span>
+                <span><a class="aCliqueAqui" href="gastronomia.html#divComoChegou">clique aqui.</a></span>
               </p>
             </div>
           </div>
@@ -164,6 +167,19 @@
   </body>
 </html>
 <script>
+   sessionStorage.NOMEUSUARIO = '';
+   
+ nomeUsuario.innerHTML = `${sessionStorage.getItem('NOMEUSUARIO')}`;
+    var teste = sessionStorage.getItem('NOMEUSUARIO');
+    if(teste != '' || teste == undefined || teste == null){
+        naoCadastrado.style.display = 'none'; 
+        cadastrado.style.display = 'block'
+    }
+    else{
+        naoCadastrado.style.display = 'block'; 
+        cadastrado.style.display = 'none'
+    }
+
   infos.style.display = "none";
   slideShow.style.display = "none";
   header.style.display = "none";

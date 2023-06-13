@@ -46,8 +46,32 @@
         >
           <div style="width: 80%">
             <div>
-              <label for="iptLogin">LOGIN</label><br />
-              <input class="inputTxt" id="iptLogin" type="text" />
+              <label for="iptNome">NOME</label><br />
+              <input class="inputTxt" id="iptNome" type="text" />
+            </div>
+            <div style="margin-top: 3%">
+              <label for="iptCelular">Tel. Celular</label><br />
+              <input class="inputTxt" id="iptCelular" type="text" />
+            </div>
+            <div style="margin-top: 3%">
+              <label for="iptBairro">Bairro</label><br />
+              <input class="inputTxt" id="iptBairro" type="text" />
+            </div>
+            <div style="margin-top: 3%">
+              <label for="ipCidade">Cidade</label><br />
+              <input class="inputTxt" id="iptCidade" type="text" />
+            </div>
+            <div style="margin-top: 3%">
+              <label for="iptRua">Rua</label><br />
+              <input class="inputTxt" id="iptRua" type="text" />
+            </div>
+            <div style="margin-top: 3%">
+              <label for="iptNumero">Número</label><br />
+              <input class="inputTxt" id="iptNumero" type="number" min="0" />
+            </div>
+            <div style="margin-top: 3%">
+              <label for="ipEmail">EMAIL</label><br />
+              <input class="inputTxt" id="iptEmail" type="text" />
             </div>
             <div style="margin-top: 3%; display: flex; align-items: center">
               <div style="width: 48%; margin-right: 2%">
@@ -58,10 +82,6 @@
                 <label for="iptCheckSenha">REPETIR SENHA</label><br />
                 <input class="inputTxt" id="iptCheckSenha" type="password" />
               </div>
-            </div>
-            <div style="margin-top: 3%">
-              <label for="ipEmail">EMAIL</label><br />
-              <input class="inputTxt" id="iptEmail" type="text" />
             </div>
             <div style="margin-top: 3%">
               <div style="display: flex; align-items: center">
@@ -85,7 +105,7 @@
                 <label for="salgado">SALGADO</label>
                 <input
                   type="radio"
-                  id="iptdrink"
+                  id="iptDrink"
                   name="alimento_fav"
                   value="drink"
                 />
@@ -107,34 +127,12 @@
                 style="display: flex; margin-top: 10%; justify-content: center"
               >
                 <div style="width: 50%; margin-right: 1%">
-                  <button
-                    style="
-                      background: #b27494;
-                      border: none;
-                      width: 100%;
-                      border-radius: 22px;
-                      height: 8vh;
-                      font-size: 22px;
-                      color: white;
-                    "
-                  >
+                  <button class="btnConfirmar" onclick="cadastrarLogin()">
                     CONFIRMAR
                   </button>
                 </div>
                 <div style="width: 50%; margin-left: 1%">
-                  <button
-                    style="
-                      background: #dea1c0;
-                      border: none;
-                      width: 100%;
-                      border-radius: 22px;
-                      height: 8vh;
-                      font-size: 22px;
-                      color: white;
-                    "
-                  >
-                    LIMPAR
-                  </button>
+                  <button class="btnLimpar" onclick="Limpar()">LIMPAR</button>
                 </div>
               </div>
             </div>
@@ -143,8 +141,164 @@
       </div>
     </div>
 
-    <div style="display: flex; justify-content: flex-end;">
+    <div style="display: flex; justify-content: flex-end">
       <img src="../assets/logoPagCadastros.png" alt="" srcset="" />
     </div>
   </body>
 </html>
+
+<script>
+  var alimentoPrefGlobal;
+  var fkLoginGlobal = 0;
+
+  function selectfkLogin() {
+    var fkLogin;
+    fetch("loginTabela/listarUltimoIdLoginTabela")
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            var fkLoginArray = resposta[0];
+            fkLogin = fkLoginArray.idLogin;
+            fkLoginGlobal = fkLogin;
+            console.log(fkLoginGlobal);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ ultimo idLogin: ${error.message}`
+        );
+      });
+  }
+
+  function cadastrarLogin() {
+    var erro = false;
+    var emailLoginVar = iptEmail.value;
+    var senhaLogin = iptSenha.value;
+    var checkSenhaVar = iptCheckSenha.value;
+
+    if (emailLoginVar == "" || senhaLogin == "" || checkSenhaVar == "") {
+      erro = true;
+      alert("Email e/ou senha não podem ser nulos!");
+    }
+    if (senhaLogin != checkSenhaVar) {
+      erro = true;
+      alert("Senhas não conferem!");
+    }
+    if (!erro) {
+      fetch("/loginTabela/cadastrarLoginTabela", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          emailLogin: emailLoginVar,
+          senhaLogin: checkSenhaVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            cadastrarUsuario();
+            console.log("Login Cadastrado com sucesso!");
+          } else {
+            throw alert(
+              "Houve um erro ao tentar realizar o cadastro do Login!"
+            );
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+    }
+    selectfkLogin();
+  }
+
+  function cadastrarUsuario() {
+    if (document.getElementById("iptDoce").checked == true) {
+      alimentoPrefGlobal = "doce";
+    } else if (document.getElementById("iptSalgado").checked == true) {
+      alimentoPrefGlobal = "salgado";
+    } else {
+      alimentoPrefGlobal = "drink";
+    }
+
+    var nomeUsuarioVar = iptNome.value;
+    var celularUsuario = iptCelular.value;
+    var bairroUsuarioVar = iptBairro.value;
+    var cidadeUsuarioVar = iptCidade.value;
+    var ruaUsuarioVar = iptRua.value;
+    var fkLoginVar = fkLoginGlobal;
+    var numeroUsuarioVar = iptNumero.value;
+
+    let erro = false;
+
+    var validacoes =
+      nomeUsuarioVar == "" ||
+      celularUsuario == "" ||
+      bairroUsuarioVar == "" ||
+      cidadeUsuarioVar == "" ||
+      ruaUsuarioVar == "" ||
+      numeroUsuarioVar == "" ||
+      alimentoPrefGlobal == "";
+
+    if (validacoes) {
+      alert("Por favor, preencher todos os campos");
+      erro = true;
+    }
+    if (!erro) {
+      fetch("/usuario/cadastrarUsuario", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeUsuario: nomeUsuarioVar,
+          telCelularUsuario: celularUsuario,
+          bairroUsuario: bairroUsuarioVar,
+          cidadeUsuario: cidadeUsuarioVar,
+          ruaUsuario: ruaUsuarioVar,
+          numeroUsuario: numeroUsuarioVar,
+          fkLogin: Number(fkLoginVar) + 1,
+          alimentoPref: alimentoPrefGlobal,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            alert("Cadastro de Usuario com sucesso!");
+            window.location.href = "login.html";
+          } else {
+            throw alert(
+              "Houve um erro ao tentar realizar o cadastro do Usuario!"
+            );
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+    }
+  }
+
+  function Limpar() {
+    iptNome.value = "";
+    iptCelular.value = "";
+    iptBairro.value = "";
+    iptCidade.value = "";
+    iptRua.value = "";
+    fkLoginGlobal = "";
+    iptNumero.value = "";
+    iptEmail.value = "";
+    iptSenha.value = "";
+    iptCheckSenha.value = "";
+  }
+</script>

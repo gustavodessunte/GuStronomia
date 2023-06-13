@@ -20,4 +20,16 @@ router.get("/listarDrinks", function (req, res) {
     receitasController.listarDrinks(req, res);
 });
 
+router.get("/listarQntdDoces", function (req, res) {
+    receitasController.listarQntdDoces(req, res);
+});
+
+router.get("/listarQntdSalgados", function (req, res) {
+    receitasController.listarQntdSalgados(req, res);
+});
+
+router.get("/listarQntdDrinks", function (req, res) {
+    receitasController.listarQntdDrinks(req, res);
+});
+
 module.exports = router;

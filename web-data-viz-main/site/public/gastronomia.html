@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gastronomia</title>
-  <link rel="stylesheet" href="styleGastronomia.css" />
+  <link rel="stylesheet" href="./css/styleGastronomia.css" />
 </head>
 <style>
   * {
@@ -71,8 +71,11 @@
           <hr class="hrMenu" />
         </div>
         <div>
-          <a href="cadastro.html">
+          <a href="cadastro.html" id="naoCadastrado" style="display: block;">
             <img src="../assets/Account circle.svg" />
+          </a>
+          <a href="metricas.html" id="cadastrado" style="display: none;">
+           <p id="nomeUsuario"></p>
           </a>
         </div>
       </div>
@@ -90,7 +93,7 @@
         </p>
       </div>
       <div >
-        <img style="width:100%;" src="../Gastronomia/assets/image1.png">
+        <img style="width:100%;" src="../assets/image1.png">
       </div>
     </div>
   </div>
@@ -99,7 +102,7 @@
     <div style="margin-top: 10%;display: flex; justify-content: space-between;width: 80%;align-items: center;">
 
       <div>
-        <img style="width:80%;" src="../Gastronomia/assets/image 2.png">
+        <img style="width:80%;" src="../assets/image 2.png">
       </div>
       <div style="width:55%;">
         <p style="font-size: 28px;font-weight: bold; justify-content: center; display: flex;">COMO CHEGOU EM MINHA VIDA?</p>
@@ -152,6 +155,17 @@
 
 </html>
 <script>
+ nomeUsuario.innerHTML = `${sessionStorage.getItem('NOMEUSUARIO')}`;
+    var teste = sessionStorage.getItem('NOMEUSUARIO');
+    if(teste != '' || teste == undefined || teste == null){
+        naoCadastrado.style.display = 'none'; 
+        cadastrado.style.display = 'block'
+    }
+    else{
+        naoCadastrado.style.display = 'block'; 
+        cadastrado.style.display = 'none'
+    }
+
    const el = document.querySelector("#header");
   const observer = new IntersectionObserver(
     ([e]) => e.target.classList.toggle("is-pinned", e.intersectionRatio < 1),

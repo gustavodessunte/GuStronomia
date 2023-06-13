@@ -41,9 +41,33 @@ function listarDrinks() {
     return database.executar(instrucao);
 }
 
+function listarQntdDoces(){
+    var instrucao = `
+    select count(alimentoPref) qtdDoces from Usuario where alimentoPref = 'doce';`
+
+    return database.executar(instrucao);
+}
+
+function listarQntdSalgados(){
+    var instrucao = `
+    select count(alimentoPref) as qtdSalgados from Usuario where alimentoPref = 'salgado';`
+
+    return database.executar(instrucao);
+}
+
+function listarQntdDrinks(){
+    var instrucao = `
+    select count(alimentoPref) as qtdDrinks from Usuario where alimentoPref = 'drink';`
+
+    return database.executar(instrucao);
+}
+
 module.exports = {
     listarReceitas,
     listarDoces,
     listarSalgados,
-    listarDrinks
+    listarDrinks,
+    listarQntdDoces,
+    listarQntdSalgados,
+    listarQntdDrinks
 };
